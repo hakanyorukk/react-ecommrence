@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import ButtonIcon from "../../ui/ButtonIcon";
 import { useDeleteCart } from "./useDeleteCart";
 import { useNavigate } from "react-router-dom";
-import { MdArrowRightAlt } from "react-icons/md";
 import { ClipLoader } from "react-spinners";
 
 const slideIn = keyframes`
@@ -121,7 +120,7 @@ function SideCart({ data, isLoading }) {
       return acc + cur;
     }, 0);
 
-  if (!data) {
+  if (!data || isLoading) {
     return <div>Loading...</div>;
   }
   return (

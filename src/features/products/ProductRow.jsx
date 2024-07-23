@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Heading from "../../ui/Heading";
 import ReactStars from "react-rating-stars-component";
 import { BiCartAdd } from "react-icons/bi";
-import ButtonIcon from "../../ui/ButtonIcon";
+
 import { useNavigate } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
+
 // eslint-disable-next-line react/prop-types
 const StyledProductRow = styled.div`
   display: flex;

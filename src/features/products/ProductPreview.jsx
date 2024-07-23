@@ -8,7 +8,7 @@ import { BiCartAdd } from "react-icons/bi";
 import { FaShippingFast } from "react-icons/fa";
 import { TbTruckReturn } from "react-icons/tb";
 import { IoBagCheckOutline, IoShieldCheckmark } from "react-icons/io5";
-import { ClipLoader, SyncLoader } from "react-spinners";
+import { ClipLoader } from "react-spinners";
 
 const StyledProductPreview = styled.div`
   display: flex;

@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import useProducts from "./useProducts";
+
 import ProductRow from "./ProductRow";
-import Empty from "../../ui/Empty";
-import Spinner from "../../ui/Spinner";
-import { BeatLoader } from "react-spinners";
 
 const StyledProductTable = styled.div`
   display: flex;

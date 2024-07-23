@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { useLogin } from "./useLogin";
 
 import FormRowVertical from "../../ui/FormRowVertical";
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import styled from "styled-components";
-import FullPage from "../../ui/FullPage";
-import { ScaleLoader } from "react-spinners";
 
 const LoginButton = styled.div`
   text-align: center;

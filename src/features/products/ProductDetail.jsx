@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Empty from "../../ui/Empty";
-import Spinner from "../../ui/Spinner";
 import useProduct from "./useProduct";
 
 import { HiChevronRight } from "react-icons/hi2";
@@ -11,7 +10,7 @@ import ProductImages from "../../ui/ProductImages";
 import ProductComments from "./ProductComments";
 import ProductPreview from "./ProductPreview";
 import FullPage from "../../ui/FullPage";
-import { BounceLoader, DotLoader, ScaleLoader } from "react-spinners";
+import { ScaleLoader } from "react-spinners";
 
 const StyledProductDetail = styled.div`
   display: grid;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import useProduct from "../products/useProduct";
 
 const StyledOrderDetail = styled.div`
   border: 2px solid var(--color-grey-400);

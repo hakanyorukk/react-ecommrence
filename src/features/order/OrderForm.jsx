@@ -6,12 +6,12 @@ import { useState } from "react";
 import OrderButton from "../../ui/OrderButton";
 import { useCreateOrder } from "./useCreateOrder";
 import { useCarts } from "../cart/useCarts";
-//import { useForm, handleSubmit } from "react-hook-form";
+
 import { useDeleteAllCart } from "../cart/useDeleteCart";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../../ui/Spinner";
+
 import toast from "react-hot-toast";
-import FullPage from "../../ui/FullPage";
+
 import { DotLoader } from "react-spinners";
 
 const StyledCreateOrder = styled.div`

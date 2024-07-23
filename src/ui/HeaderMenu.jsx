@@ -1,16 +1,10 @@
 import styled from "styled-components";
-import {
-  HiOutlineHeart,
-  HiOutlineShoppingBag,
-  HiOutlineShoppingCart,
-  HiOutlineUser,
-} from "react-icons/hi2";
-import { NavLink, useNavigate } from "react-router-dom";
+import { HiOutlineShoppingCart, HiOutlineUser } from "react-icons/hi2";
+import { NavLink } from "react-router-dom";
 import { useUser } from "../features/authentication/useUser";
 import Logout from "../features/authentication/Logout";
 import { IoLogInOutline, IoLogOutOutline } from "react-icons/io5";
-import { useEffect, useState } from "react";
-import { GrFavorite } from "react-icons/gr";
+
 import { MdFavoriteBorder } from "react-icons/md";
 
 const NavList = styled.ul`

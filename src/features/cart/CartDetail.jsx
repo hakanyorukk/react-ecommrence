@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import { useCarts } from "./useCarts";
-import Empty from "../../ui/Empty";
-import Spinner from "../../ui/Spinner";
-
 import CartItem from "./CartItem";
 import DeleteAllItem from "./DeleteAllItem";
 import FullPage from "../../ui/FullPage";
@@ -41,7 +38,7 @@ function CartDetail() {
   const allIds = data?.map((i) => i.id) || [];
   console.log([249, 250]);
 
-  if (isLoading || !data)
+  if (isLoading || !data || error)
     return (
       <FullPage>
         <ScaleLoader

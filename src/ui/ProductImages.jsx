@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ReactImageMagnify from "react-image-magnify";
 import styled from "styled-components";
 
 const StyledProductImages = styled.div`

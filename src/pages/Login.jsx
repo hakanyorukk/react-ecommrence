@@ -3,7 +3,7 @@ import LoginForm from "../features/authentication/LoginForm";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../features/authentication/useLogin";
 import FullPage from "../ui/FullPage";
-import { ScaleLoader } from "react-spinners";
+import { MoonLoader, ScaleLoader } from "react-spinners";
 
 const LoginLayout = styled.main`
   min-height: 100vh;
@@ -35,13 +35,18 @@ function Login() {
   if (isLoading)
     return (
       <FullPage>
-        <ScaleLoader
+        {/* <ScaleLoader
           height={55}
           width={6}
           margin={6}
           color="var(--color-brand-600)"
           loading={true}
           speedMultiplier={1.5}
+        /> */}
+        <MoonLoader
+          size={70}
+          speedMultiplier={1.5}
+          color="var(--color-brand-600)"
         />
       </FullPage>
     );

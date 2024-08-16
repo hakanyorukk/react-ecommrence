@@ -10,7 +10,8 @@ const StyledHeader = styled.header`
   z-index: 3;
   color: var(--color-grey-50);
   background-color: var(--color-grey-800);
-  padding: 0.5rem 4rem;
+  padding: 0.4rem 8rem;
+
   gap: 2.4rem;
   justify-content: space-between;
   align-items: center;

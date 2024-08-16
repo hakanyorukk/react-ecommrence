@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 
 const StyledProductImages = styled.div`
@@ -34,7 +35,10 @@ export default function ProductImages({ image }) {
   return (
     <StyledProductImages>
       <MainImage>
-        <img src={image?.[imagei]} className="main-image" />
+        <div>
+          <LazyLoadImage src={image?.[imagei]} />
+        </div>
+        {/* <img src={image?.[imagei]} className="main-image" /> */}
       </MainImage>
       <OtherImages>
         {image.length > 1

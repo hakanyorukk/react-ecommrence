@@ -6,6 +6,7 @@ import Logout from "../features/authentication/Logout";
 import { IoLogInOutline, IoLogOutOutline } from "react-icons/io5";
 
 import { MdFavoriteBorder } from "react-icons/md";
+import { useCarts } from "../features/cart/useCarts";
 
 const NavList = styled.ul`
   display: flex;
@@ -13,20 +14,22 @@ const NavList = styled.ul`
   align-items: center;
   justify-content: flex-end;
   padding: 0 1.5rem;
+
   color: var(--color-grey-50);
 `;
 
 const StyledNavLink = styled(NavLink)`
   &:link,
   &:visited {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin: 0 0.4rem;
+    margin: 1rem 1.6rem;
     color: var(--color-grey-50);
     font-size: 1.6rem;
     font-weight: 600;
-    padding: 1rem 1.4rem;
+    // padding: 1rem 1.4rem;
     transition: all 0.3s;
     //border: 2px solid red;
   }
@@ -35,9 +38,7 @@ const StyledNavLink = styled(NavLink)`
   &:active,
   &.active:link,
   &.active:visited {
-    color: var(--color-brand-500);
-    background: none;
-    border-radius: 2rem;
+    color: var(--color-yellow-100);
   }
 
   & svg {
@@ -51,31 +52,57 @@ const StyledNavLink = styled(NavLink)`
   &:active svg,
   &.active:link svg,
   &.active:visited svg {
-    color: var(--color-brand-500);
+    color: var(--color-yellow-100);
   }
 
-  &.shopping-cart {
-    //border: 2px solid red;
-    &:hover,
-    &:active,
-    &.active:link,
-    &.active:visited {
-      color: var(--color-yellow-100);
-      background: none;
-      border-radius: 2rem;
-    }
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    width: 90%;
+    margin: 0 auto;
+    height: 0.175rem;
+    transform: scale(0.1);
+    background-color: var(--color-yellow-100);
+    transition: all 0.5s ease;
+  }
 
-    &:hover svg,
-    &:active svg,
-    &.active:link svg,
-    &.active:visited svg {
-      color: var(--color-yellow-100);
-    }
+  &:hover::after,
+  &:active::after,
+  &.active:link::after,
+  &.active:visited::after {
+    transform: scale(1.1);
+  }
+`;
+
+const Shopping = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  p {
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    top: -1rem; /* Adjust as needed */
+    left: 1.4rem;
+    padding: 0.2rem 0.5rem; /* Example styling */
+    border-radius: 50%;
+    background-color: var(--color-yellow-400);
+    color: black;
+    font-size: 1.5rem;
+    height: 2rem;
+    border-radius: 50%;
   }
 `;
 
 function HeaderMenu() {
   const { isAuthenticated, isLoading } = useUser();
+  const carts = useCarts();
+  // console.log(carts?.data.length);
 
   return (
     <NavList>
@@ -83,15 +110,18 @@ function HeaderMenu() {
         <StyledNavLink to="products">
           Wishlist
           <MdFavoriteBorder />
-          {/* //
-          <HiOutlineHeart /> */}
         </StyledNavLink>
       </li>
 
       <li>
-        <StyledNavLink to="/cart" className="shopping-cart">
+        <StyledNavLink to="/cart">
           Shopping Cart
-          <HiOutlineShoppingCart />
+          <Shopping>
+            {carts?.data?.length > 0 && (
+              <p className="notify">{carts?.data?.length}</p>
+            )}
+            <HiOutlineShoppingCart />
+          </Shopping>
         </StyledNavLink>
       </li>
       {!isAuthenticated ? (

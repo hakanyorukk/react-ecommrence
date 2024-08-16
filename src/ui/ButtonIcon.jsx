@@ -26,23 +26,46 @@ const sizes = {
     }
   `,
   large: css`
-    font-size: 1.6rem;
+    display: flex;
+    height: 100%;
+    width: 20rem;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.2rem;
     font-weight: 500;
-
-    padding: 0.5rem 1.6rem;
-    border-radius: 2.2rem;
+    padding: 0.2rem 1.6rem;
+    border-radius: 0.6rem;
     border: 2px solid var(--color-grey-300);
-    background-color: var(--color-yellow-100);
+    background-color: var(--color-yellow-300);
+    transition: all 0.3s ease 0.2s;
+
     & svg {
       width: 4.5rem;
       height: 4rem;
     }
+
+    &:hover {
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+      transform: translateY(-5px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  `,
+  largeload: css`
+    display: flex;
+    height: 100%;
+    width: 20rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px solid var(--color-grey-300);
+    background-color: var(--color-yellow-100);
   `,
 };
 
 const ButtonIcon = styled.button`
-  gap: 0.6rem;
-  padding: 0.6rem;
   transition: all 0.2s;
   ${(props) => sizes[props.size]}/* &:hover {
     background-color: var(--color-grey-100);

@@ -48,17 +48,19 @@ const ProductInfoOperation = styled.div`
 
   padding: 1rem 2rem;
   gap: 1.5rem;
+  z-index: 10;
 
   select {
     display: flex;
     align-items: center;
     text-align: center;
-    padding: 0.3rem 0.6rem;
-    border-radius: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.2rem;
     border: 1px solid var(--color-grey-500);
   }
 
   button {
+    z-index: 100;
     border: none;
     background: none;
     font-size: 2rem;
@@ -71,8 +73,11 @@ function CartItem({ product }) {
   const { isDeleting1, deleteCart } = useDeleteCart();
   const navigate = useNavigate();
   return (
-    <StyledCartItem onClick={() => navigate(`/products/${product.productId}`)}>
-      <img src={JSON.parse(product.image)[0]} />
+    <StyledCartItem>
+      <img
+        src={JSON.parse(product.image)[0]}
+        onClick={() => navigate(`/products/${product.productId}`)}
+      />
       <ProductInfoRow>
         <ProductTitleRow>
           <h2>{product.title}</h2>

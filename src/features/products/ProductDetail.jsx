@@ -10,7 +10,7 @@ import ProductImages from "../../ui/ProductImages";
 import ProductComments from "./ProductComments";
 import ProductPreview from "./ProductPreview";
 import FullPage from "../../ui/FullPage";
-import { ScaleLoader } from "react-spinners";
+import { MoonLoader } from "react-spinners";
 
 const StyledProductDetail = styled.div`
   display: grid;
@@ -18,7 +18,8 @@ const StyledProductDetail = styled.div`
   align-items: center;
   justify-content: center;
   margin: auto;
-  width: 80%;
+  //border: 2px solid green;
+  width: 70%;
 `;
 
 const CategoryInfo = styled.div`
@@ -52,14 +53,19 @@ function ProductDetail() {
   if (isLoading)
     return (
       <FullPage>
-        <ScaleLoader
+        <MoonLoader
+          size={70}
+          speedMultiplier={1.5}
+          color="var(--color-brand-600)"
+        />
+        {/* <ScaleLoader
           height={55}
           width={6}
           margin={6}
           color="var(--color-brand-600)"
           loading={true}
           speedMultiplier={1.5}
-        />
+        /> */}
       </FullPage>
     );
   if (!product || product === undefined)

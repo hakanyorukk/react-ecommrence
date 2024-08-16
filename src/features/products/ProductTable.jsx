@@ -6,7 +6,8 @@ const StyledProductTable = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
   flex-shrink: 60rem;
   gap: 1rem;
   justify-content: center;

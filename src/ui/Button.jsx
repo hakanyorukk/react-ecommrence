@@ -10,11 +10,10 @@ const Button = styled.button`
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
   height: 4rem;
   text-align: left;
   display: flex;
-  border-radius: 1.5rem;
+  border-radius: 0.8rem;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 600;

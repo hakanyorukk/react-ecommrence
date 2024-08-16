@@ -21,7 +21,7 @@ const StyledCreateOrder = styled.div`
   width: 60%;
   height: 60%;
   margin: 5rem auto;
-  border-radius: 2rem;
+  border-radius: 0.4rem;
 
   h2 {
     padding: 2rem 4rem;
@@ -117,7 +117,7 @@ function OrderForm() {
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-          ></Input>
+          />
         </FormRowVertical>
 
         <FormRowVertical label="Phone Number:">
@@ -126,7 +126,7 @@ function OrderForm() {
             type="text"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-          ></Input>
+          />
         </FormRowVertical>
 
         <FormRowVertical label="Adress:">
@@ -135,7 +135,7 @@ function OrderForm() {
             type="text"
             value={address}
             onChange={(e) => setAdress(e.target.value)}
-          ></Input>
+          />
         </FormRowVertical>
         <h3>Free shipping on all orders</h3>
         <StyledButton>
@@ -154,7 +154,7 @@ function OrderForm() {
           //   navigateNewPage();
           // }}
           >
-            Order now {Math.round(totalProductsPrice)}$
+            <p>Order now {Math.round(totalProductsPrice)}$</p>
           </OrderButton>
         </StyledButton>
       </Form>

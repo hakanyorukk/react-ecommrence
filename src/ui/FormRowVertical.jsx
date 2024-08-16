@@ -8,8 +8,9 @@ const StyledFormRow = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: block;
 `;
 
 const Error = styled.span`

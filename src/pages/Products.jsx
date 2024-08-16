@@ -3,13 +3,7 @@ import Heading from "../ui/Heading";
 import ProductTable from "../features/products/ProductTable";
 import ProductTableOperations from "../features/products/ProductTableOperations";
 import useProducts from "../features/products/useProducts";
-import {
-  BounceLoader,
-  DotLoader,
-  MoonLoader,
-  RingLoader,
-  ScaleLoader,
-} from "react-spinners";
+import { MoonLoader } from "react-spinners";
 import FullPage from "../ui/FullPage";
 
 // export default Products;
@@ -32,14 +26,6 @@ function Products() {
           speedMultiplier={1.5}
           color="var(--color-brand-600)"
         />
-        {/* <ScaleLoader
-          height={50}
-          width={6}
-          margin={6}
-          color="var(--color-brand-600)"
-          loading={true}
-          speedMultiplier={1.5}
-        /> */}
       </FullPage>
     );
 

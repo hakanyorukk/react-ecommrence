@@ -12,6 +12,7 @@ import Cart from "./pages/Cart";
 import Account from "./pages/Account";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import Order from "./pages/Order";
+import NotFound from "./pages/NotFound";
 
 //Protected layout for order pages, account,
 
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="products" />} />
+              <Route path="/" element={<Products />} />
               <Route path="products" element={<Products />} />
               <Route path="products/:productId" element={<Product />} />
               <Route path="cart" element={<Cart />} />
@@ -52,6 +54,7 @@ function App() {
               />
             </Route>
             <Route path="login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
 

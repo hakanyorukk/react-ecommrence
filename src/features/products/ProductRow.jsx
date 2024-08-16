@@ -8,13 +8,16 @@ import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const StyledProductRow = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1.4rem;
+
   background-color: var(--color-grey-50);
-  width: 190px;
-  max-height: 40rem;
-  justify-content: space-between;
+  width: 24rem;
+  height: 40rem;
+  //justify-content: space-between;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
 
@@ -25,19 +28,16 @@ const StyledProductRow = styled.div`
 `;
 
 const ProductImage = styled.img`
-  height: 20rem;
+  height: 25rem;
   margin: 0;
 `;
 
 const ProductInfo = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: start;
+  flex-direction: column;
   font-size: 2.4rem;
   font-weight: 500;
   margin: 0;
-  height: 14rem;
 
   & p {
     font-weight: bold;
@@ -45,26 +45,24 @@ const ProductInfo = styled.div`
   }
 `;
 
+const PriceIcon = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+`;
+
 const Icon = styled.button`
-  position: relative;
-  padding: 0;
-  width: 30%;
-  bottom: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 1rem;
   background: none;
   border: 2px solid var(--color-grey-300);
-  border-radius: 2rem;
-  transition: box-shadow 0.3s ease;
-  margin-left: 1rem;
-  background-color: var(--color-yellow-100);
 
-  /* margin-bottom: -1rem;
-  margin-left: 0; // Removed since we're using absolute positioning
-  height: 10%;
-  left: 12rem; */
+  background-color: var(--color-yellow-300);
 
   &:hover {
     box-shadow: var(--shadow-lg);
-    border-radius: 2rem;
+
     background-color: var(--color-grey-300);
   }
 
@@ -74,10 +72,16 @@ const Icon = styled.button`
   }
 `;
 
+const Star = styled.div`
+  position: absolute;
+  bottom: 1.2rem;
+`;
+
 function ProductRow({ product: { images, title, price, rating, id } }) {
   const navigate = useNavigate();
   const productId = id;
   const image_path = images[0];
+
   // console.log(isLoading);
   // if (isLoading) return <ClipLoader />;
   // const image = image_path.replace(/[[\]"]/g, "");
@@ -85,21 +89,27 @@ function ProductRow({ product: { images, title, price, rating, id } }) {
   return (
     <StyledProductRow onClick={() => navigate(`/products/${productId}`)}>
       {/* {isLoading && <ClipLoader />} */}
+      {/* <LazyLoadImage effect="blur"  src={image_path} /> */}
+
       <ProductImage src={image_path} />
       <ProductInfo>
-        <p>{price}$</p>
-        <Icon>
-          <BiCartAdd />
-        </Icon>
-        <ReactStars
-          size={25}
-          value={rating}
-          isHalf={true}
-          edit={false}
-          // color={"var(--color-grey-400)"}
-          //activeColor={"var(--color-red-700)"}
-        />
+        <PriceIcon>
+          <p>{price}$</p>
+          <Icon>
+            <BiCartAdd />
+          </Icon>
+        </PriceIcon>
         <Heading as="h3">{title}</Heading>
+        <Star>
+          <ReactStars
+            size={20}
+            value={rating}
+            isHalf={true}
+            edit={false}
+            color={"var(--color-grey-300)"}
+            activeColor={"var(--color-grey-700)"}
+          />
+        </Star>
       </ProductInfo>
     </StyledProductRow>
   );

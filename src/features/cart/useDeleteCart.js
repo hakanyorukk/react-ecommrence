@@ -13,7 +13,6 @@ export function useDeleteCart() {
 
     onSuccess: () => {
       toast.success("Product successfully deleted.");
-
       queryClient.invalidateQueries({ queryKey: ["carts"] });
     },
     onError: (err) => toast.error(err.message),

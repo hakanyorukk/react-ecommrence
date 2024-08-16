@@ -22,7 +22,7 @@ const SearchButton = styled.button`
   display: flex;
   text-align: center;
   align-items: center;
-  background-color: var(--color-brand-600);
+  background-color: var(--color-brand-800);
 
   & svg {
     width: 2rem;

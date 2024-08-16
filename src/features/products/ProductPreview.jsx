@@ -8,7 +8,7 @@ import { BiCartAdd } from "react-icons/bi";
 import { FaShippingFast } from "react-icons/fa";
 import { TbTruckReturn } from "react-icons/tb";
 import { IoBagCheckOutline, IoShieldCheckmark } from "react-icons/io5";
-import { ClipLoader } from "react-spinners";
+import { SyncLoader } from "react-spinners";
 
 const StyledProductPreview = styled.div`
   display: flex;
@@ -78,8 +78,9 @@ const ProductDescription = styled.div`
 `;
 
 const AddCart = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 20rem;
+  display: flex;
+
+  //grid-template-columns: 1fr 40rem;
   justify-content: space-between;
   padding: 2rem 2rem;
 `;
@@ -87,46 +88,43 @@ const AddCart = styled.div`
 const Stock = styled.div`
   display: flex;
   align-items: center;
+  text-align: center;
+
   // border: 2px solid red;
 
   h4 {
-    border-radius: 2rem;
+    font-size: 1.5rem;
     padding: 1rem 2rem;
-    background-color: var(--color-green-100);
+    background-color: var(--color-grey-100);
   }
 `;
 
 const AddCartButtons = styled.div`
   display: flex;
   align-items: center;
+  //width: 40rem;
   justify-content: space-between;
 `;
 
 const ButtonAdj = styled.button`
   display: flex;
   align-items: center;
-  //padding: 0.5rem 0;
-  //border: 3px solid red;
-  background-color: var(--color-brand-100);
-  border-radius: 1.5rem;
-  height: 70%;
+  height: 80%;
   border: none;
-  margin: 0 1rem;
   border: 1px solid var(--color-grey-400);
-
+  width: 15rem;
+  margin: 0.6rem 1rem;
+  border-radius: 0.4rem;
+  overflow: hidden;
   button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: none;
+    background: var(--color-grey-100);
     width: 100%;
-    border-radius: 1rem;
-    //padding: 0.6rem;
-    margin: 0.6rem;
     height: 100%;
     border: none;
     font-size: 1.5rem;
-    //border: 1px solid var(--color-grey-400);
   }
 
   p {
@@ -136,22 +134,18 @@ const ButtonAdj = styled.button`
   input {
     font-weight: bold;
     font-size: 2rem;
-    width: 100%;
+    height: 100%;
     display: flex;
+    text-align: center;
     align-items: center;
     border: none;
     width: 100%;
-    background: none;
+    background: var(--color-grey-0);
   }
 `;
 
-const Quantity = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 function ProductPreview({ product }) {
-  const { isAdding, addCart } = useAddToCart();
+  const { isLoading, addCart } = useAddToCart();
   const [quantity, setQuantity] = useState(1);
 
   const {
@@ -196,7 +190,7 @@ function ProductPreview({ product }) {
       </ProductShip>
 
       <ProductDescription>
-        <h4>Description</h4>
+        <h4>Overview</h4>
         {product.description}
       </ProductDescription>
 
@@ -207,7 +201,7 @@ function ProductPreview({ product }) {
         <AddCartButtons>
           <ButtonAdj>
             <button
-              disabled={isAdding || quantity <= 1}
+              disabled={isLoading || quantity <= 1}
               onClick={() => {
                 if (quantity > 1) setQuantity(quantity - 1);
               }}
@@ -219,7 +213,7 @@ function ProductPreview({ product }) {
               onChange={(e) => setQuantity(+e.target.value)}
             />
             <button
-              disabled={isAdding || quantity >= product.stock}
+              disabled={isLoading || quantity >= product.stock}
               onClick={() => {
                 if (quantity < product.stock) {
                   setQuantity(quantity + 1); // Only increment quantity if it's less than product.stock
@@ -229,25 +223,31 @@ function ProductPreview({ product }) {
               <p>+</p>
             </button>
           </ButtonAdj>
-
-          <ButtonIcon
-            disabled={isAdding}
-            size="large"
-            onClick={() =>
-              addCart({
-                productId,
-                image,
-                price: price,
-                shippingInformation,
-                title,
-                quantity,
-                totalPrice: price * quantity,
-                stock: product.stock,
-              })
-            }
-          >
-            {isAdding ? <ClipLoader /> : <BiCartAdd />}
-          </ButtonIcon>
+          {isLoading ? (
+            <ButtonIcon size="largeload">
+              <SyncLoader size={16} margin={5} color="var(--color-grey-600)" />
+            </ButtonIcon>
+          ) : (
+            <ButtonIcon
+              disabled={isLoading}
+              size="large"
+              onClick={() =>
+                addCart({
+                  productId,
+                  image,
+                  price: price,
+                  shippingInformation,
+                  title,
+                  quantity,
+                  totalPrice: price * quantity,
+                  stock: product.stock,
+                })
+              }
+            >
+              <p>Add to cart</p>
+              <BiCartAdd />
+            </ButtonIcon>
+          )}
         </AddCartButtons>
       </AddCart>
     </StyledProductPreview>

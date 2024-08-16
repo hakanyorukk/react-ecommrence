@@ -9,10 +9,10 @@ const StyledSideBar = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: auto;
+
   padding: 2.2rem;
-  background-color: var(--color-brand-200);
-  border-radius: 2rem;
+  background-color: var(--color-brand-100);
+  border-radius: 1rem;
 `;
 
 function ProductTableOperations() {

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 const StyledOrderDetail = styled.div`
-  border: 2px solid var(--color-grey-400);
+  border: 2px solid var(--color-grey-300);
   display: flex;
   flex-direction: column;
   margin: 2rem 3rem;
   background-color: var(--color-grey-100);
-  border-radius: 1rem;
+  border-radius: 0.4rem;
 `;
 
 const OrderTitle = styled.div`

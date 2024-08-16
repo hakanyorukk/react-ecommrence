@@ -5,7 +5,7 @@ const StyledFullPage = styled.div`
   align-items: center;
   justify-content: center;
   margin: auto;
-  height: 80vh;
+  height: 100vh;
   //background-color: var(--color-brand-600);
   backdrop-filter: blur(20px);
   // background-color: rgba(0, 0, 0, 0.4);

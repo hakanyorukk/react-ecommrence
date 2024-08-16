@@ -7,10 +7,12 @@ import { ScaleLoader } from "react-spinners";
 
 const StyledCart = styled.div`
   padding: 1rem 8rem;
-  width: 78%;
-  margin: 1rem auto;
+  width: 120rem;
+
+  margin: 5rem auto;
+
   background-color: var(--color-grey-100);
-  border-radius: 2rem;
+  border-radius: 0.4rem;
 `;
 
 const TotalPriceInfo = styled.div`
@@ -53,7 +55,7 @@ function CartDetail() {
     );
   return (
     <StyledCart>
-      <h1>My Cart</h1>
+      <h1>Your Cart</h1>
       <DeleteAllItem allIds={allIds} />
       {data.map((product) => (
         <CartItem product={product} key={product.id} />

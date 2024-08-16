@@ -63,9 +63,9 @@ const CartButton = styled.button`
   justify-content: space-around;
   align-items: center;
   display: flex;
-  //border: 2px solid var(--color-grey-50);
-  background-color: var(--color-yellow-100);
-  border-radius: 1.6rem;
+  border: 2px solid var(--color-grey-400);
+  background-color: var(--color-yellow-300);
+  border-radius: 0.4rem;
   //padding: 0.4rem 0.6rem;
 `;
 
